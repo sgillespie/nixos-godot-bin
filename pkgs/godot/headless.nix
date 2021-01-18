@@ -3,15 +3,15 @@
 }:
 godotBin.overrideAttrs (oldAttrs: rec {
   pname = "godot-headless-bin";
-  version = "3.2.3";
+  version = "3.2.4-beta6";
 
   src = fetchurl {
-    url = "https://downloads.tuxfamily.org/godotengine/3.2.3/Godot_v3.2.3-stable_linux_headless.64.zip";
-    sha256 = "0flrxi7ri3503h8l5hl55qz7qjwfxkfdr1jc36lbicdfqr9nrw30";
+    url = "https://downloads.tuxfamily.org/godotengine/3.2.4/beta6/Godot_v3.2.4-beta6_linux_headless.64.zip";
+    sha256 = "0bbm6xi210m8bpfxyf9jjmgiag9s3dgi8an94z9fg58rghwhxfk1";
   };
 
   installPhase = ''
     mkdir -p $out/bin
-    install -m 0755 Godot_v${version}-stable_linux_headless.64 $out/bin/godot-headless
+    install -m 0755 Godot_v${version}_linux_headless.64 $out/bin/godot-headless
   '';
 })

@@ -9,11 +9,11 @@
 
 stdenv.mkDerivation rec {
   pname = "godot-bin";
-  version = "3.2.3";
+  version = "3.2.4-beta6";
 
   src = fetchurl {
-    url = "https://downloads.tuxfamily.org/godotengine/3.2.3/Godot_v3.2.3-stable_x11.64.zip";
-    sha256 = "1ypp4kpz3cs6238px0sc5jnwhk0r3g6p3wqjaqm3a549fr8m1idj";
+    url = "https://downloads.tuxfamily.org/godotengine/3.2.4/beta6/Godot_v3.2.4-beta6_x11.64.zip";
+    sha256 = "0xqms6rlzw915lilydx81z6zrsxakgnzsd65ni2pyc4xzncrmh15";
   };
 
   nativeBuildInputs = [autoPatchelfHook unzip];
