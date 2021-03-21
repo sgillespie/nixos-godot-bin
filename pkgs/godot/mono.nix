@@ -6,13 +6,18 @@
   zlib
 }:
 
+let
+  majorVersion = "3.3";
+  preVersion = "rc6";
+in
+
 godotBin.overrideAttrs (oldAttrs: rec {
   pname = "godot-mono-bin";
-  version = "3.2.4-beta6";
+  version = "${majorVersion}-${preVersion}";
 
   src = fetchurl {
-    url = "https://downloads.tuxfamily.org/godotengine/3.2.4/beta6/mono/Godot_v3.2.4-beta6_mono_x11_64.zip";
-    sha256 = "1ql58irqkjppn0kb91155nb6sbspv5hf9qgi6hfbgxz42iiyv8ic";
+    url = "https://downloads.tuxfamily.org/godotengine/${majorVersion}/${preVersion}/mono/Godot_v${version}_mono_x11_64.zip";
+    sha256 = "0bya0fnllxqxsisfpj1lfpxds0xb95dhsmw55822hc58nxqnf4in";
   };
 
   buildInputs = oldAttrs.buildInputs ++ [zlib];
