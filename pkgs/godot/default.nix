@@ -8,17 +8,16 @@
 }:
 
 let
-  majorVersion = "3.3";
-  preVersion = "rc6";
+  qualifier = "stable";
 in
 
 stdenv.mkDerivation rec {
   pname = "godot-bin";
-  version = "${majorVersion}-${preVersion}";
+  version = "3.3.1";
 
   src = fetchurl {
-    url = "https://downloads.tuxfamily.org/godotengine/${majorVersion}/${preVersion}/Godot_v${version}_x11.64.zip";
-    sha256 = "1r7bybyww0ni9bs2ik3arrrl17fr4hdsrnlysa4w1xv4gfx393r4";
+    url = "https://downloads.tuxfamily.org/godotengine/${version}/Godot_v${version}-${qualifier}_x11.64.zip";
+    sha256 = "10gnxr0v9vkc4jbi8870nz714y9h7y1asrlfvq4nv7wjmcfrwv7wb";
   };
 
   nativeBuildInputs = [autoPatchelfHook unzip];
@@ -38,7 +37,7 @@ stdenv.mkDerivation rec {
   unpackCmd = "unzip $curSrc -d source";
   installPhase = ''
     mkdir -p $out/bin
-    install -m 0755 Godot_v${version}_x11.64 $out/bin/godot
+    install -m 0755 Godot_v${version}-${qualifier}_x11.64 $out/bin/godot
   '';
 
   meta = {

@@ -10,8 +10,8 @@ let
 in
   mkShell {
     buildInputs = with pkgs; [
-      godot
-      godotHeadless
-      godotMono
+      godotBin
+      godotHeadlessBin
+      godotMonoBin
     ];
   }

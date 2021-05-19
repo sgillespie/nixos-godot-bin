@@ -5,7 +5,7 @@ let
 in
 {
   godotBin = callPackage ./pkgs/godot { };
-  godotMono = callPackage ./pkgs/godot/mono.nix { };
-  godotHeadless = callPackage ./pkgs/godot/headless.nix { };
+  godotMonoBin = callPackage ./pkgs/godot/mono.nix { };
+  godotHeadlessBin = callPackage ./pkgs/godot/headless.nix { };
 }
       
