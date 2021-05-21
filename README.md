@@ -10,7 +10,7 @@ The simplest way to use these packages are to use the overlay. In your `configur
       };
     in
   
-    nixpkgs.overlays = nixpkgs.overlays ++ [(import "${nixosGodot}/overlay.nix)]
+    nixpkgs.overlays = nixpkgs.overlays ++ [(import "${nixosGodot}/overlay.nix)"]
 
     # <-- Snip -->
     environment.systemPackages = with pkgs; [
