@@ -8,11 +8,11 @@ in
 
 godotBin.overrideAttrs (oldAttrs: rec {
   pname = "godot-headless-bin";
-  version = "3.3.1";
+  version = "3.3.2";
 
   src = fetchurl {
     url = "https://downloads.tuxfamily.org/godotengine/${version}/Godot_v${version}-${qualifier}_linux_headless.64.zip";
-    sha256 = "1qz71nr72a83dq82jm5pnbj5rkg0w23hqazms59d175xm77m1bkk";
+    sha256 = "0i4g7329929jf4zyrivxnh6p17vygjj6hb2f5vjc4xzdpsn68ydk";
   };
 
   installPhase = ''

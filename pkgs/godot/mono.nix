@@ -12,11 +12,11 @@ in
 
 godotBin.overrideAttrs (oldAttrs: rec {
   pname = "godot-mono-bin";
-  version = "3.3.1";
+  version = "3.3.2";
 
   src = fetchurl {
     url = "https://downloads.tuxfamily.org/godotengine/${version}/mono/Godot_v${version}-${qualifier}_mono_x11_64.zip";
-    sha256 = "0ypjdlinqb47a0zpi3n4n1l1h1c3byjq73rcwqk5q3izyczq000z";
+    sha256 = "036i3hqlabk736pg9l7qraj5mq2jdg9gfka7g22fyrr3hvz8jv4a";
   };
 
   buildInputs = oldAttrs.buildInputs ++ [zlib];
