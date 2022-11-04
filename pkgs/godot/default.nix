@@ -1,8 +1,10 @@
 { stdenv,
   lib,
   autoPatchelfHook,
+  makeWrapper,
   fetchurl,
   unzip,
+  udev,
   alsaLib, libXcursor, libXinerama, libXrandr, libXrender, libX11, libXi,
   libpulseaudio, libGL,
 }:
@@ -13,16 +15,17 @@ in
 
 stdenv.mkDerivation rec {
   pname = "godot-bin";
-  version = "3.3.2";
+  version = "3.5.1";
 
   src = fetchurl {
     url = "https://downloads.tuxfamily.org/godotengine/${version}/Godot_v${version}-${qualifier}_x11.64.zip";
-    sha256 = "0sracw2b9ymjg3ypng3020fy8m0hpp7fhzmni89f73k4mssib020";
+    sha256 = "kl5HGjL2mjxWktfubJXan/l7bmZu562VmD8iO6rQ4H0=";
   };
 
-  nativeBuildInputs = [autoPatchelfHook unzip];
+  nativeBuildInputs = [autoPatchelfHook makeWrapper unzip];
 
   buildInputs = [
+    udev
     alsaLib
     libXcursor
     libXinerama
@@ -34,10 +37,17 @@ stdenv.mkDerivation rec {
     libGL
   ];
 
+  libraries = lib.makeLibraryPath buildInputs;
+
   unpackCmd = "unzip $curSrc -d source";
   installPhase = ''
     mkdir -p $out/bin
     install -m 0755 Godot_v${version}-${qualifier}_x11.64 $out/bin/godot
+  '';
+
+  postFixup = ''
+    wrapProgram $out/bin/godot \
+      --set LD_LIBRARY_PATH ${libraries}
   '';
 
   meta = {
