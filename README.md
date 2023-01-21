@@ -63,9 +63,9 @@ Put this in your `flake.nix`, to install Godot for your user:
         ({ config, nixpkgs, ...}@inputs:
           users.users.YOURUSERNAME.packages = [
             # ...
-            inputs.godot.godot.x86_64-linux # for godot without Mono / C#
-            inputs.godot.godotHeadless.x86_64-linux # for godot headless
-            inputs.godot.godotMono.x86_64-linux # for godotMono
+            inputs.godot.packages.x86_64-linux.godot # for godot without Mono / C#
+            inputs.godot.packages.x86_64-linux.godotHeadless # for godot headless
+            inputs.godot.packages.x86_64-linux.godotMono
           ]
         )
       ]
@@ -86,9 +86,9 @@ Alternatively you can also install Godot system-wide like this:
         ({ config, nixpkgs, ...}@inputs:
           environment.systemPackages = [
             # ...
-            inputs.godot.godot.x86_64-linux # for godot without Mono / C#
-            inputs.godot.godotHeadless.x86_64-linux # for godot headless
-            inputs.godot.godotMono.x86_64-linux # for godotMono
+            inputs.godot.packages.x86_64-linux.godot # for godot without Mono / C#
+            inputs.godot.packages.x86_64-linux.godotHeadless # for godot headless
+            inputs.godot.packages.x86_64-linux.godotMono
           ]
         )
       ]
