@@ -15,6 +15,54 @@
         "type": "github"
       }
     },
+    "godot-desktop-file": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-FYiixHXikdWjfSDwYc0ZcchoW9UiOBh0cMsClOuSJFY=",
+        "type": "file",
+        "url": "https://raw.githubusercontent.com/godotengine/godot/master/misc/dist/linux/org.godotengine.Godot.desktop"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://raw.githubusercontent.com/godotengine/godot/master/misc/dist/linux/org.godotengine.Godot.desktop"
+      }
+    },
+    "godot-icon-png": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-Y4Y2RpEiZOBJEEtgJZVHDJ+GUgN2fn9VPP+oZWQZMr0=",
+        "type": "file",
+        "url": "https://raw.githubusercontent.com/godotengine/godot/master/icon.png"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://raw.githubusercontent.com/godotengine/godot/master/icon.png"
+      }
+    },
+    "godot-icon-svg": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-xTcztMjjqJlymXLs/fcJRzaocomHAvxOK9FT0lmaBPc=",
+        "type": "file",
+        "url": "https://raw.githubusercontent.com/godotengine/godot/master/icon.svg"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://raw.githubusercontent.com/godotengine/godot/master/icon.svg"
+      }
+    },
+    "godot-manpage": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-+oithkOprerqtxlLWXhiue4bF5CAT+8Zki9drEUWwy0=",
+        "type": "file",
+        "url": "https://raw.githubusercontent.com/godotengine/godot/master/misc/dist/linux/godot.6"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://raw.githubusercontent.com/godotengine/godot/master/misc/dist/linux/godot.6"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1674236650,
@@ -34,6 +82,10 @@
     "root": {
       "inputs": {
         "flake-utils": "flake-utils",
+        "godot-desktop-file": "godot-desktop-file",
+        "godot-icon-png": "godot-icon-png",
+        "godot-icon-svg": "godot-icon-svg",
+        "godot-manpage": "godot-manpage",
         "nixpkgs": "nixpkgs"
       }
     }

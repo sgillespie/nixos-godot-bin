@@ -7,6 +7,24 @@
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:numtide/flake-utils";
     };
+
+    # Add files needed to create a launcher icon for Godot
+    godot-desktop-file = {
+      url = "https://raw.githubusercontent.com/godotengine/godot/master/misc/dist/linux/org.godotengine.Godot.desktop";
+      flake = false;
+    };
+    godot-icon-png = {
+      url = "https://raw.githubusercontent.com/godotengine/godot/master/icon.png";
+      flake = false;
+    };
+    godot-icon-svg = {
+      url = "https://raw.githubusercontent.com/godotengine/godot/master/icon.svg";
+      flake = false;
+    };
+    godot-manpage = {
+      url = "https://raw.githubusercontent.com/godotengine/godot/master/misc/dist/linux/godot.6";
+      flake = false;
+    };
   };
 
   outputs = { self, nixpkgs, flake-utils, ... }@inputs:
@@ -41,12 +59,21 @@
           # just add this flake to your flakes inputs, and then you can
           # use these packages to include Godot in your environment.
           defaultPackage = packages.godot;
-          packages.godot = pkgs.callPackage ./pkgs/godot { };
+          packages.godot = pkgs.callPackage ./pkgs/godot {
+            godotDesktopFile = inputs.godot-desktop-file;
+            godotIconPNG = inputs.godot-icon-png;
+            godotIconSVG = inputs.godot-icon-svg;
+            godotManpage = inputs.godot-manpage;
+          };
           packages.godotHeadless = pkgs.callPackage ./pkgs/godot/headless.nix {
             godotBin = packages.godot;
           };
           packages.godotMono = pkgs.callPackage ./pkgs/godot/mono.nix {
             godotBin = packages.godot;
+            godotDesktopFile = inputs.godot-desktop-file;
+            godotIconPNG = inputs.godot-icon-png;
+            godotIconSVG = inputs.godot-icon-svg;
+            godotManpage = inputs.godot-manpage;
           };
         }
       );
