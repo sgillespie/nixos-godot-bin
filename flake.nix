@@ -75,7 +75,11 @@
             godotIconSVG = inputs.godot-icon-svg;
             godotManpage = inputs.godot-manpage;
           };
-          overlays.default = (import ./overlay.nix { inherit pkgs; });
+          overlays.default = final: prev: {
+            godot = packages.godot;
+            godotHeadless = packages.godotHeadless;
+            godotMono = packages.godotMono;
+          };
         }
       );
 }
